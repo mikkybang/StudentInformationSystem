@@ -30,6 +30,8 @@ res.render('index');
 //insert resource
 app.post('/create', function(req,res){
     pool.getConnection(function(error,conn){
+		if (error)
+        return res.send(400);
     var queryString = "insert into student(firstName,middleName,lastName,age,sex,class) values('"+req.body.firstname+"','"+req.body.middlename+"','"+req.body.lastname+"','"+req.body.age+"','"+req.body.sex+"','"+req.body.class+"')"
     conn.query(queryString,function(error,results){
     if(error)
