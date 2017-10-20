@@ -16,7 +16,7 @@ var id;
 var mysql = require('mysql');
 var pool = mysql.createPool({
 connectionLimit : 100, //focus it
-host : '64.62.211.131',
+host : 'student-information-system1.herokuapp.com',
 user : 'omnific_michael',
 password : '123michael',
 database : 'omnific_student'
