@@ -16,10 +16,10 @@ var id;
 var mysql = require('mysql');
 var pool = mysql.createPool({
 connectionLimit : 100, //focus it
-host : 'student-information-system1.herokuapp.com',
-user : 'omnific_michael',
-password : '123michael',
-database : 'omnific_student'
+host : 'xchangegramcom.ipagemysql.com',
+user : 'michael',
+password : 'michael',
+database : 'student'
 });
 
 //opening view
