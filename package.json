@@ -6,6 +6,7 @@
   "dependencies": {
     "ejs": "^2.5.7",
     "express": "^4.16.2",
+    "forever": "^0.15.3",
     "mysql": "^2.15.0",
     "sql": "^0.78.0"
   },
