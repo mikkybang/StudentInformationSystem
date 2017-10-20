@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Student Information System</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+        <link href="/static/css/custom.css" rel="stylesheet">
+        <script src="/static/js/respond.js"></script>
+
+
+
+        <!--Navigation -->
+        <div class="row">
+            <nav class="navbar navbar-default templatemo-nav navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="glyphicon glyphicon-arrow-down"></span>
+                            MENU
+					</button>
+                        <a href="index.html" class="navbar-brand">Student Information System</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/">Create Student</a></li>
+                            <li  class="active"><a href="../List">List Student</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+
+        <!--Navigation End-->
+
+<div class="container" style="padding: 70px;">
+<% data.forEach(function(item, index){ %>
+    <tr>
+    <h1>Name:<td><%= item.firstName %></td>
+    <td><%= item.middleName %></td>
+    <td><%= item.lastName %></td></br></h1>
+    <h3><td>Sex:<%= item.sex %></td></br> 
+    <td>Age:<%= item.age %></td></br>
+    <td>Class:<%= item.class %></td></br></h3>
+    <td><a href="../delete/<%= item.studentID %>" class "btn btn-primary">DELETE</a></td>
+    <td><a href="/edit/<%= item.studentID %>"   class "btn btn-primary">EDIT</a></td></br>
+    </br>
+    </tr>
+<% }); %>
+
+</div>
+
+
+
+        <!-- javascript -->
+        <script src="/static/js/jquery.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        </body>
+
+</html>
