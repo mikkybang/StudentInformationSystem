@@ -139,10 +139,11 @@ app.get('/delete/:studentID', function(req,res){
 
 });
 //start server
-var server = app.listen(80, function () {
+	port = process.env.PORT || 1881;
+var server = app.listen(port, function () {
 var host = server.address().address
-var port = server.address().port
-console.log("Example app listening at http://%s:%s", host, port)
+var ports = server.address().port
+console.log("Example app listening at http://%s:%s", host, ports)
 });
 
 
