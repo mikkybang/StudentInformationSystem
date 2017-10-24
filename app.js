@@ -10,23 +10,37 @@ app.use('/static', express.static(__dirname + "/public"));
 app.use('/static', express.static(__dirname + "/public/css"));
 app.use('/static', express.static(__dirname + "/public/js"));
 
-var id;
 
 //mysql
 var mysql = require('mysql');
 var pool = mysql.createPool({
 connectionLimit : 100, //focus it
-host : 'xchangegramcom.ipagemysql.com',
-user : 'michael',
-password : 'michael',
-database : 'student'
+host : 'bemdt0uqq-mysql.services.clever-cloud.com',
+user : 'ulmkhf7ogmhhgqvp',
+password : 'FFXF7xnN21GVpzO4Qpr',
+database : 'bemdt0uqq',
+port: 3306
 });
+
 
 //opening view
 app.get('/', function(req,res){
-res.render('index');
+	pool.getConnection(function(error,conn){
+    var queryString = "CREATE TABLE IF NOT EXISTS student (studentID int PRIMARY KEY AUTO_INCREMENT, firstName VARCHAR(50),middleName VARCHAR(50),lastName VARCHAR(50),age VARCHAR(10),sex ENUM('male','female'),class VARCHAR(10));"
+    conn.query(queryString,function(error,results){
+    if(error)
+    {
+    throw error;
+    }
+    else
+    {
+    res.render('index');
+    }
+    });
+    conn.release();
+    });
 });
-
+	
 //insert resource
 app.post('/create', function(req,res){
     pool.getConnection(function(error,conn){
@@ -147,6 +161,10 @@ var host = server.address().address
 var ports = server.address().port
 console.log("Example app listening at http://%s:%s", host, ports)
 });
+
+
+
+
 
 
 

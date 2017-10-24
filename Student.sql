@@ -1,5 +1,4 @@
-DROP TABLE IF EXISTS student;
-CREATE TABLE student (
+CREATE TABLE IF NOT EXISTS student (
 studentID int PRIMARY KEY AUTO_INCREMENT,
 firstName VARCHAR(50),
 middleName VARCHAR(50),
